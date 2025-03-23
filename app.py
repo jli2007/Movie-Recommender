@@ -2,9 +2,16 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
+import os
 
 st.set_page_config(layout="wide")
-apiKey = st.secrets["TMDB_KEY"]
+
+if "TMDB_KEY" in st.secrets:
+    apiKey = st.secrets["TMDB_KEY"]
+else:
+    apiKey = os.getenv("TMDB_KEY")
+    
+    
 movies_list = pickle.load(open('movie_dict.pkl', 'rb'))
 movies = pd.DataFrame(movies_list)
 similarity = pickle.load(open('similarity.pkl', 'rb'))
