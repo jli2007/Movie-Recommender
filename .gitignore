@@ -1,0 +1,5 @@
+venv
+.venv
+.streamlit
+movie_dict.pkl
+similarity.pkl
