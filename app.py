@@ -3,7 +3,8 @@ import pickle
 import pandas as pd
 import requests
 
-apiKey = st.secrets["tmdb"]["api"]
+st.set_page_config(layout="wide")
+apiKey = st.secrets["TMDB_KEY"]
 movies_list = pickle.load(open('movie_dict.pkl', 'rb'))
 movies = pd.DataFrame(movies_list)
 similarity = pickle.load(open('similarity.pkl', 'rb'))
@@ -43,3 +44,5 @@ if st.button('find recommendations'):
         with columns[i]:
             st.text(movies[i])
             st.image(posters[i])
+            
+st.text("uses vector distance to calculate closest vectors (movies) depending on factors like keywords, genre, and crew")
