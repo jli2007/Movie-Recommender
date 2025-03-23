@@ -6,11 +6,10 @@ import os
 
 st.set_page_config(layout="wide")
 
-if "TMDB_KEY" in st.secrets:
+apiKey = os.getenv("TMDB_KEY")
+
+if apiKey is None:
     apiKey = st.secrets["TMDB_KEY"]
-else:
-    apiKey = os.getenv("TMDB_KEY")
-    
     
 movies_list = pickle.load(open('movie_dict.pkl', 'rb'))
 movies = pd.DataFrame(movies_list)

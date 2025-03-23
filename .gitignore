@@ -3,3 +3,4 @@ venv
 .streamlit
 movie_dict.pkl
 similarity.pkl
+.env
