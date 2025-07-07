@@ -300,7 +300,7 @@ cv = CountVectorizer(max_features=5000, stop_words='english')
 # In[42]:
 
 
-vectors = cv.fit_transform(new_df['tags']).toarray()
+vectors = cv.fit_transform(new_df['tags']).toarray() # type: ignore
 
 
 # In[43]:

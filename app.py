@@ -12,7 +12,7 @@ if apiKey is None:
     apiKey = st.secrets["TMDB_KEY"]
     
 movies_list = pickle.load(open('movie_dict.pkl', 'rb'))
-movies = pd.DataFrame(movies_list)
+movies: pd.DataFrame = pd.DataFrame(movies_list)
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 def fetchPoster(movie_id):
@@ -41,7 +41,7 @@ st.title("movie recommender system")
 selected_movie = st.selectbox('select movie', movies['title'].values)    
 
 if st.button('find recommendations'):
-    movies, posters = recommend(selected_movie)
+    movies, posters = recommend(selected_movie) # type: ignore
     col1, col2, col3, col4, col5 = st.columns(5) 
     
     columns = [col1, col2, col3, col4, col5]
