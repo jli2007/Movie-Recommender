@@ -5,12 +5,6 @@
   },
   "deploy": {
     "startCommand": "python movie.py && streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.fileWatcherType none --browser.gatherUsageStats false --client.toolbarMode minimal",
-    "restartPolicyType": "ON_FAILURE",
-    "limitOverride": {
-      "containers": {
-        "cpu": 0.5,
-        "memoryBytes": 512000000
-      }
-    }
+    "restartPolicyType": "ON_FAILURE"
   }
 }
